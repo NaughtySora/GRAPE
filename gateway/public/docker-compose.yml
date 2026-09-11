@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  nginx_gateway:
+    image: nginx:stable-alpine
+    container_name: public_gateway
+    ports:
+      - "${PORT}:${PORT}"
+    environment:
+      - PORT=${PORT}
+      - USER_URL=${USER_URL}
+    volumes:
+      - ./nginx.conf:/etc/nginx/templates/default.conf.template:ro
+    networks:
+      - global_user_public_net
+
+networks:
+  global_user_public_net:
+    external: true

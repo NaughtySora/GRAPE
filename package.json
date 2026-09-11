@@ -1,0 +1,16 @@
+{
+  "name": "grape",
+  "version": "0.0.1",
+  "author": "NaughtySora <naughtysora@proton.me>",
+  "keywords": [
+    "nodejs",
+    "microservices",
+    "architecture",
+    "pattern"
+  ],
+  "scripts": {
+    "public:compose": "docker compose --env-file ./gateway/public/.env --project-directory ./gateway/public -f ./gateway/public/docker-compose.yml",
+    "router:public:up": "npm run public:compose -- up",
+    "router:public:down": "npm run public:compose -- down"
+  }
+}
