@@ -82,11 +82,11 @@ changes.
 
 You still would have separated things like:
 config:
-public.secret
+public.secret\
 admin.secret
 
 http api:
-/public/auth
+/public/auth\
 /admin/auth
 
 But instead making it one big service, you run them independently.
@@ -149,7 +149,7 @@ We don't want to interact with notification.public, instead we
 provide integration api for our services to call
 notification/integration/dosomething
 
-###### third-party integration
+##### third-party integration
 First, the solution.
 I would create separated service "third-party service".
 Inside it, i would make many small subservices for each client.
