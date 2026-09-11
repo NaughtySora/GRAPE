@@ -46,8 +46,7 @@
     "migrations:run": "npm run typeorm -- migration:run -d src/storage/data-source.ts",
     "migrations:generate": "npm run typeorm -- migration:generate src/storage/migrations/migration -d src/storage/data-source.ts",
     "migrations:apply": "typeorm migration:run -d dist/src/storage/data-source.js",
-    "crypto:key": "node -p 'crypto.randomBytes(64).toString(\"base64\")'",
-    "postgres:init": "docker run --rm --env-file .env -v \"$(pwd)/init-scripts:/docker-entrypoint-initdb.d:ro\" -v pg-data:/var/lib/postgresql/data postgres:17"
+    "crypto:key": "node -p 'crypto.randomBytes(64).toString(\"base64\")'"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
