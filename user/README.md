@@ -28,3 +28,9 @@ all related images like postgres, redis etc for locally running subservice
 - migrations:apply - used by image to run migrations on built service.
 ##### misc commands
 - crypto:key - generates base64 crypto key
+
+#### booting docker compose
+- check shared networks
+- check envs
+- try first build image if something is wrong
+- make sure global_user_public_net docker network exists.
