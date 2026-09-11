@@ -142,16 +142,16 @@ We have our 2 services:
 1. user service.
 2. notification service.
 
-User asks public api to do something.
-Call "user.public" via user/public/dosomething.
-Inside it may call internal services, like notification.
+User asks public api to do something.\
+Call "user.public" via user/public/dosomething.\
+Inside it may call internal services, like notification.\
 We don't want to interact with notification.public, instead we
 provide integration api for our services to call
 notification/integration/dosomething
 
 ##### third-party integration
-First, the solution.
-I would create separated service "third-party service".
+First, the solution.\
+I would create separated service "third-party service".\
 Inside it, i would make many small subservices for each client.
 - Kyc subservice
 - Payment subservice
