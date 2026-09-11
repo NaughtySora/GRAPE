@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: user_postgres_public
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: true
+      - path: .public.env
+        required: true
+    ports:
+      - "${PUBLIC_DB_PORT}:5432"
+    networks:
+      - user_public_net
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+  server:
+    image: user_public:latest
+    container_name: user_public_server
+    build:
+      context: .
+      dockerfile: src/services/public/Dockerfile
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: true
+      - path: .public.env
+        required: true
+    environment:
+      POSTGRES_HOST: postgres
+      PUBLIC_DB_HOST: postgres
+    ports:
+      - "${PUBLIC_HTTP_PORT}:${PUBLIC_HTTP_PORT}"
+    depends_on:
+      - postgres
+    networks:
+      - user_public_net
+      - global_user_public_net
+
+volumes:
+  pg-data:
+    external: true
+
+networks:
+  user_public_net:
+    driver: bridge
+  global_user_public_net:
+    external: true

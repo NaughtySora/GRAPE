@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "src",
+  "compilerOptions": {
+    "deleteOutDir": true
+  },
+  "projects": {
+    "public": {
+      "type": "application",
+      "root": "src/services/public",
+      "entryFile": "src/services/public/main",
+      "sourceRoot": "src"
+    },
+    "integration": {
+      "type": "application",
+      "root": "src/services/integration",
+      "entryFile": "src/services/integration/main",
+      "sourceRoot": "src"
+    },
+    "admin": {
+      "type": "application",
+      "root": "src/services/admin",
+      "entryFile": "src/services/admin/main",
+      "sourceRoot": "src"
+    }
+  }
+}

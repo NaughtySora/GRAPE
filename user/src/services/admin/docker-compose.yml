@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: user_postgres_admin
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: true
+      - path: .admin.env
+        required: true
+    ports:
+      - "${ADMIN_DB_PORT}:5432"
+    networks:
+      - user_admin_net
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+  server:
+    image: user_admin:latest
+    build:
+      context: .
+      dockerfile: src/services/admin/Dockerfile
+    container_name: user_admin_server
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: true
+      - path: .admin.env
+        required: true
+    environment:
+      POSTGRES_HOST: postgres
+      ADMIN_DB_HOST: postgres
+    ports:
+      - "${ADMIN_HTTP_PORT}:${ADMIN_HTTP_PORT}"
+    depends_on:
+      - postgres
+    networks:
+      - user_admin_net
+
+volumes:
+  pg-data:
+    external: true
+
+networks:
+  user_admin_net:
+    driver: bridge
+

@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: user_postgres_integration
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: true
+      - path: .integration.env
+        required: true
+    ports:
+      - "${INTEGRATION_DB_PORT}:5432"
+    networks:
+      - user_integration_net
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+  server:
+    image: user_integration:latest
+    build:
+      context: .
+      dockerfile: src/services/integration/Dockerfile
+    container_name: user_integration_server
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: true
+      - path: .integration.env
+        required: true
+    environment:
+      POSTGRES_HOST: postgres
+      INTEGRATION_DB_HOST: postgres
+    ports:
+      - "${INTEGRATION_HTTP_PORT}:${INTEGRATION_HTTP_PORT}"
+    depends_on:
+      - postgres
+    networks:
+      - user_integration_net
+
+volumes:
+  pg-data:
+    external: true
+
+networks:
+  user_integration_net:
+    driver: bridge

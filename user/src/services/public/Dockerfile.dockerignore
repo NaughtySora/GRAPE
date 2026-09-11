@@ -1,0 +1,5 @@
+src/services/integration/
+src/services/admin/
+src/services/public/test/
+src/main.ts
+src/module.ts
