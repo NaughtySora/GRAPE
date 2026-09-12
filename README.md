@@ -1,15 +1,15 @@
-#### GRAPE
+## GRAPE
 Granular Responsibility Application Platform Engineering
 
-#### idea of GRAPE
+### idea of GRAPE
 Think of an abstraction as one, but design it so each client
 is isolated and all the clients form the abstraction.
 
-#### Picture in my head
+### Picture in my head
 Inspired by grape, small abstractions as grape berries form whole grape.
 You can pick one grape berry or a couple or whole thing.
 
-#### Description
+### Description
 A lot of papers, thoughts, conversations formal and informal about 
 Single Responsibility and Separation of Concerns, Layers, Clients, etc.
 
@@ -48,7 +48,7 @@ Subservices share everything inside a service.
 But each subservice can be developed, deployed, maintained and scaled
 separately. 
 
-#### Schema
+### Schema
 Horizontal layers, services are "shared-nothing"
 ```
 [----------User service----------]
@@ -66,7 +66,8 @@ New subservice can be added if new client arises.
 │  User Service   │
 └─────────────────┘
 ```
-#### Example
+
+### Example
 Here we can easily add "mobile" client/subservice. 
 If our public api uses http + cookie for session, 
 you can easily make some adapters and expose mobile api
@@ -95,7 +96,7 @@ initial development starts as one big service, in the future you can easily run
 them independently, or if compatible you can run them as one in the development
 and separately at production.
 
-#### Overall schema 
+### Overall schema 
 ```
 +=================================================+
 | user:          | public | integrations | admin  |
@@ -103,7 +104,7 @@ and separately at production.
 | notifications: | integrations                   |
 +=================================================+
 ```
-#### Benefits
+### Benefits
 It will allow to scale each subservice independently.
 
 You can have user service to be:
@@ -116,12 +117,11 @@ If you have problems with public api, admin still can use admin api.
 
 You can assign each team to work on user service and each dev on subservice.
 
-#### Downsides
+### Downsides
 - Need solid understanding of what you are doing.
 - Setup complexity.
 
-
-#### third-party
+### Third-party
 I was also thinking how to arrange third-party interaction.
 My though is to make integration service.
 
@@ -130,7 +130,7 @@ There 2 integrations types.
 - subservice integration is api for application service to service communication.
 - third-party integration is api for integration with outside of your application providers.
 
-##### service to service integration
+### Service to service integration
 We have our 2 services:
 1. user service.
 2. notification service.
@@ -142,7 +142,7 @@ We don't want to interact with notification.public, instead we
 provide integration api for our services to call
 notification/integration/dosomething
 
-##### third-party integration
+### Third-party integration
 First, the solution.\
 I would create separated service "third-party service".\
 Inside it, i would make many small subservices for each client.
@@ -163,7 +163,7 @@ subscriptions, etc.
 Its better to make separated place for third-party and give each one own
 deployment, scaling, configs, transport and business rules.
 
-##### schemas of services and subservices
+### Schemas of services and subservices
 ```
 USER
 ├── user.public
@@ -183,7 +183,7 @@ THIRD-PARTY INTEGRATIONS
 └── ...
 ```
 
-#### third-party interaction
+#### Third-party interaction
 ```
 third-party KYC
        │
@@ -208,7 +208,7 @@ third-party KYC
      User DB
 ```
 
-#### schema of public api
+#### Schema of public api
 ```
                                    Client
                                       │
