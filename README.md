@@ -116,13 +116,6 @@ If you have problems with public api, admin still can use admin api.
 
 You can assign each team to work on user service and each dev on subservice.
 
-#### Architecture pattern need to be achieved with this approach
-1. Maintenance (low complexity)
-2. Testing
-3. Scaling
-4. Deployment
-5. Observability
-
 #### Downsides
 - Need solid understanding of what you are doing.
 - Setup complexity.
