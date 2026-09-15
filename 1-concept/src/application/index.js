@@ -1,7 +1,7 @@
 'use strict';
 
 const application = require("./application.js");
-const config = require("./config.js");
+const config = require("../config/index.js");
 
 void async function () {
   if (process.argv.length < 3) {

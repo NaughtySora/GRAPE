@@ -1,7 +1,7 @@
 'use strict';
 
-const Gateway = require('./lib/gateway.js');
-const FrameWork = require('./lib/process.js');
+const Gateway = require('../lib/gateway.js');
+const FrameWork = require('../lib/process.js');
 
 void async function () {
   const { 2: mapping, 3: port, 4: name } = process.argv;

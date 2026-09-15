@@ -1,7 +1,7 @@
 'use strict';
 
 const { misc } = require("naughty-util");
-const config = require("./config");
+const config = require("../config");
 
 void async function () {
   if (process.argv.length < 3) {

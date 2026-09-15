@@ -5,8 +5,8 @@
   "type": "commonjs",
   "main": "main.js",
   "scripts": {
-    "app": "node main.js",
-    "client": "node client.js",
+    "app": "node ./src/application/index.js",
+    "client": "node ./src/client/index.js",
     "app:public": "npm run app -- public",
     "app:mobile": "npm run app -- mobile",
     "app:admin": "npm run app -- admin",

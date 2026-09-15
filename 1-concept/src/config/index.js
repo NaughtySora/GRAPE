@@ -1,3 +1,5 @@
+'use strict';
+
 const { resolve } = require("node:path");
 
 const absolute = path => resolve(__dirname, path);
@@ -9,25 +11,25 @@ module.exports = {
       instances: [
         {
           name: "public",
-          path: absolute("user/public.js"),
+          path: absolute("../user/public.js"),
           ports: [3000, 3001, 3002, 3003],
           balancer: 23000,
         },
         {
           name: "mobile",
-          path: absolute("user/mobile.js"),
+          path: absolute("../user/mobile.js"),
           ports: [3100, 3101, 3102],
           balancer: 24000,
         },
         {
           name: "admin",
-          path: absolute("user/admin.js"),
+          path: absolute("../user/admin.js"),
           ports: [3200, 3201],
           balancer: 25000,
         },
         {
           name: "integration",
-          path: absolute("user/integration.js"),
+          path: absolute("../user/integration.js"),
           ports: [3300, 3301],
           balancer: 26000,
         }
@@ -38,19 +40,19 @@ module.exports = {
       instances: [
         {
           name: "public",
-          path: absolute("order/public.js"),
+          path: absolute("../order/public.js"),
           ports: [4000, 4001, 4002, 4003],
           balancer: 27000,
         },
         {
           name: "admin",
-          path: absolute("order/admin.js"),
+          path: absolute("../order/admin.js"),
           ports: [4200, 4201],
           balancer: 28000,
         },
         {
           name: "integration",
-          path: absolute("order/integration.js"),
+          path: absolute("../order/integration.js"),
           ports: [4300, 4301],
           balancer: 29000,
         }
@@ -61,7 +63,7 @@ module.exports = {
       instances: [
         {
           name: "integration",
-          path: absolute("notification/integration.js"),
+          path: absolute("../notification/integration.js"),
           ports: [5300, 5301],
           balancer: 30000,
         }
@@ -69,14 +71,14 @@ module.exports = {
     },
   ],
   gateway: {
-    path: absolute("gateway.js"),
+    path: absolute("../application/gateway.js"),
     public: 10000,
     mobile: 10001,
     admin: 10002,
     integration: 10003,
   },
   balancer: {
-    path: absolute("balancer.js"),
+    path: absolute("../application/balancer.js"),
     public: 12222,
     mobile: 12223,
     admin: 12224,

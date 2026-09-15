@@ -1,7 +1,7 @@
 'use strict';
 
-const config = require('./config.js');
-const FrameWork = require('./lib/process.js');
+const config = require('../config/index.js');
+const FrameWork = require('../lib/process.js');
 
 const error = (message) => { throw new Error(message) };
 

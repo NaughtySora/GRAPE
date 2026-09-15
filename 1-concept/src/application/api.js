@@ -1,8 +1,8 @@
 'use strict';
 
 const cluster = require('./cluster.js');
-const config = require('./config.js');
-const FrameWork = require('./lib/process.js');
+const config = require('../config/index.js');
+const FrameWork = require('../lib/process.js');
 
 const BASEURL = "http://localhost";
 

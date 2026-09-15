@@ -1,9 +1,9 @@
 'use strict';
 
 const api = require('./api.js');
-const config = require('./config.js');
-const Framework = require('./lib/process.js');
-const shutdown = require('./lib/shutdown.js');
+const config = require('../config/index.js');
+const Framework = require('../lib/process.js');
+const shutdown = require('../lib/shutdown.js');
 
 const URL = "http://localhost";
 

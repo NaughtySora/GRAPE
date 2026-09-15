@@ -1,7 +1,7 @@
 'use strict';
 
-const Balancer = require('./lib/balancer.js');
-const FrameWork = require('./lib/process.js');
+const Balancer = require('../lib/balancer.js');
+const FrameWork = require('../lib/process.js');
 
 void async function () {
   const { 2: sources, 3: port, 4: name } = process.argv;
