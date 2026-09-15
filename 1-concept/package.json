@@ -1,0 +1,22 @@
+{
+  "name": "grape-concept",
+  "version": "0.0.1",
+  "description": "GRAPE patter concept",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "app": "node main.js",
+    "client": "node client.js",
+    "app:public": "npm run app -- public",
+    "app:mobile": "npm run app -- mobile",
+    "app:admin": "npm run app -- admin",
+    "app:integration": "npm run app -- integration",
+    "client:public": "npm run client -- public",
+    "client:mobile": "npm run client -- mobile",
+    "client:admin": "npm run client -- admin",
+    "client:integration": "npm run client -- integration"
+  },
+  "dependencies": {
+    "naughty-util": "^0.7.0"
+  }
+}
