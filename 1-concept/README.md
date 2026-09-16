@@ -1,4 +1,4 @@
-## GRAPE concent
+## GRAPE concept
 
 I want to write small conception use almost no external tools, and
 technologies to demonstrate general ideas.
